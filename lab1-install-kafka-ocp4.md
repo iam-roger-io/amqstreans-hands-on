@@ -54,9 +54,7 @@ spec:
     userOperator: {}
 ```
 
-# Produzir e consumir no OCP
-
-# Criar Topico
+## Criar Topico
 
 ```
 kind: KafkaTopic
@@ -74,18 +72,18 @@ spec:
     segment.bytes: 1073741824
 ```
 
-## Interno 
+## Produzir e consumir no OCP
 
-**Producer**
+**Producer interno**
 
-Sem TLS
+**Sem TLS**
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9092 \
  --producer-property 'security.protocol=PLAINTEXT' \
  --topic my-topic
 ```
 
-Com TLS
+**Com TLS**
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9093 \
  --producer-property 'security.protocol=SSL' \
@@ -103,7 +101,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafk
 --topic my-topic --from-beginning
 ```
 
-Com TLS
+**Com TLS**
 ```
 $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9093 \
 --consumer-property 'security.protocol=SSL' \
@@ -112,7 +110,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafk
 --topic my-topic --from-beginning
 ```
 
-## Adicionar acesso externo
+## Adicionar acesso externo ao Openshift
 
 Adicione o bloco abaixo aos listeners
 
@@ -133,7 +131,7 @@ oc extract secret/amqstreams-lab-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
 keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks -storepass password -noprompt
 ```
 
-Producer
+**Producer**
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps-crc.testing:443 \
  --producer-property 'security.protocol=SSL' \
@@ -142,7 +140,7 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafk
  --topic my-topic
  ```
 
- Consumer
+ **Consumer**
 
  ```
  $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps-crc.testing:443 \
@@ -153,8 +151,7 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafk
  --from-beginning
  ```
 
-Se quiser pode utilizar tmbem o ca.p12 com a senah que esta na secret.
-
+Se quiser pode utilizar também o arquivo ca.p12 com a senha que está na secret.
 
 
 [Index](./index.md)

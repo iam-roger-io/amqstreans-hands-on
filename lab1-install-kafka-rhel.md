@@ -54,7 +54,7 @@ $KAFKA_HOME/bin/kafka-console-producer.sh \
  --topic my-topic --from-beginning
 ```
 
-# Adicionar um novo broker
+## Adicionar um novo broker ao cluster kafka
 
 ```
 cp -r $KAFKA_HOME ./kafka2
@@ -65,13 +65,20 @@ No server.properties adicione um novo id para o broker
 
 ```
 broker.id=1
+```
 
 Mude a porta
+```
 listeners=PLAINTEXT://:9093
+```
 
 Mude a pasta
-log.dirs=/tmp/kafka-logs2
 
+```
+log.dirs=/tmp/kafka-logs2
+```
+
+**Inicie o kafka**
 /opt/kafka/kafka2/bin/kafka-server-start.sh /opt/kafka/kafka2/config/server.properties
 
 ```
