@@ -4,7 +4,7 @@
 
 **Pré requisitos**
 
-**Obter certificado do cluster kafka no Openshift**
+Obter certificado do cluster kafka no Openshift se for utilizar um listener externo.
 
 ```
 oc project amq-streams-lab
@@ -19,6 +19,8 @@ keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks 
 ```
 
 **Listener para configurar autenticação interna SCARM-512**
+
+Listener para acesso dentro do Openshift
 ```
       - authentication:
           type: scram-sha-512
@@ -26,6 +28,16 @@ keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks 
         port: 9095
         type: internal
         tls: true
+```
+
+Listener para acesso fora do Openshift
+```
+      - authentication:
+          type: scram-sha-512
+        name: loginroute
+        port: 9096
+        tls: true
+        type: route
 ```
 
 **Criar usuário via operator**
