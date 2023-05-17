@@ -78,7 +78,8 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafk
 ```
 
 **Secret de usuário**
-Utilize essa secret se quiser utilizar a mesma senha do consumidor acima
+
+- Utilize essa secret se quiser utilizar a mesma senha do consumidor acima
 
 ```
 kind: Secret
