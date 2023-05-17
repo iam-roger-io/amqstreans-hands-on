@@ -2,12 +2,13 @@
 # Autenticação no Openshift
 [Index](./index.md)
 
-Pre requisitos
+**Pré requisitos**
 
-Obter certificado do cluster kafka no Openshift
+**Obter certificado do cluster kafka no Openshift**
 
 ```
 oc project amq-streams-lab
+```
 
 ```
 oc extract secret/amqstreams-lab-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
@@ -17,7 +18,7 @@ oc extract secret/amqstreams-lab-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
 keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks -storepass password -noprompt
 ```
 
-Listener para configurar autenticação interna SCARM-512
+**Listener para configurar autenticação interna SCARM-512**
 ```
       - authentication:
           type: scram-sha-512
@@ -27,7 +28,7 @@ Listener para configurar autenticação interna SCARM-512
         tls: true
 ```
 
-Criar usuário via operator
+**Criar usuário via operator**
 
 ```
 apiVersion: kafka.strimzi.io/v1beta2
@@ -42,7 +43,7 @@ spec:
     type: scram-sha-512
 ```
 
-Consumidor SCRAM-512
+**Consumidor SCRAM-512**
 
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9095 \
