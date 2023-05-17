@@ -2,6 +2,21 @@
 # Autenticação no Openshift
 [Index](./index.md)
 
+Pre requisitos
+
+Obter certificado do cluster kafka no Openshift
+
+```
+oc project amq-streams-lab
+
+```
+oc extract secret/amqstreams-lab-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
+```
+
+```
+keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks -storepass password -noprompt
+```
+
 Listener para configurar autenticação interna SCARM-512
 ```
       - authentication:
