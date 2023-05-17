@@ -17,17 +17,26 @@ rm -rfv /tmp/zookeeper
 rm -rfv /opt/kafka/kafka_2.13-3.3.1.redhat-00008
 ```
 
-LAB1 - Instalação
+LAB 1 - Instalação
 
 - [RHEL ](./lab1-install-kafka-rhel.md)
 - [Openshift 4](./lab1-install-kafka-ocp4.md)
 
-LAB2 
+LAB 2 
 - [Zookeeper ](./lab2-zookeeper.md)
 
+LAB 3
+- [Consumer Groups ](./lab3-consumer-group.md)
+
+LAB 4
+- [Replication Factory](./lab-replicas.md)
+
+
+LAB Autenticacao no Openshift 
+- [Autenticação no Openshift ](./lab-autenticacao.md)
 
 LAB Kafka Bridge 
-- [Kafka BRidge ](./lab-kafka-bridge.md)
+- [Kafka Bridge ](./lab-kafka-bridge.md)
 
 
 ## Refs

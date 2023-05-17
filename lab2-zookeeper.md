@@ -1,4 +1,6 @@
-# LAB2 - Zookeeper
+#
+# Zookeeper
+
 [Index](./index.md)
 
 
@@ -60,7 +62,7 @@ sed  -i 's#log.dirs=.*#log.dirs=/tmp/kafka/data/kafka-logs#g' /tmp/kafka/data/se
 
 ```
 
-## Start 3 Zookeepers
+## Incie 3 Zookeepers
 
 ```
 /tmp/kafka/zookeeper1/bin/zookeeper-server-start.sh /tmp/kafka/data/zookeeper1/zookeeper.properties
@@ -75,7 +77,7 @@ sed  -i 's#log.dirs=.*#log.dirs=/tmp/kafka/data/kafka-logs#g' /tmp/kafka/data/se
 ```
 
 
-## Start Kafka configurado para o cluster Zookeeper
+## Inicie o Kafka configurado para o cluster Zookeeper
 
 ```
 $KAFKA_HOME/bin/kafka-server-start.sh /tmp/kafka/data/server.properties
@@ -83,7 +85,7 @@ $KAFKA_HOME/bin/kafka-server-start.sh /tmp/kafka/data/server.properties
 Observe a lista de Zookeepers no arquivo [server.properties](/tmp/kafka/data/server.properties)
 
 
-## Produtor 
+**Produtor**
 
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh  \
@@ -93,7 +95,7 @@ $KAFKA_HOME/bin/kafka-console-producer.sh  \
  
 ```
 
-# Consumidor
+**Consumidor**
 
 ```
 $KAFKA_HOME/bin/kafka-console-consumer.sh  \

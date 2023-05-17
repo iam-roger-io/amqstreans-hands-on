@@ -1,3 +1,6 @@
+#
+# Instalação Openshift 4
+
 [Index](./index.md)
 
 - [Download AMQ Streams - Red Hat Developer - Community ](https://developers.redhat.com/products/amq/download)
@@ -5,7 +8,6 @@
 - [Download Apache Kafka](https://kafka.apache.org/downloads)
 
 
-# Instalação Persistente no OCP
 
 ```
 oc new-project amq-streams-lab
@@ -87,7 +89,7 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafk
 ```
 $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9093 \
  --producer-property 'security.protocol=SSL' \
- --producer-property ssl.truststore.password=uvGd0SrNEWqf \
+ --producer-property ssl.truststore.password=w6gO8hx0yqDK \
  --producer-property ssl.truststore.location=/opt/kafka/cluster-ca-certs/ca.p12 \
  --topic my-topic
  ```
@@ -105,7 +107,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafk
 ```
 $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9093 \
 --consumer-property 'security.protocol=SSL' \
---consumer-property ssl.truststore.password=uvGd0SrNEWqf \
+--consumer-property ssl.truststore.password=w6gO8hx0yqDK \
 --consumer-property ssl.truststore.location=/opt/kafka/cluster-ca-certs/ca.p12 \
 --topic my-topic --from-beginning
 ```
@@ -133,20 +135,20 @@ keytool -import -trustcacerts -alias root -file ca.crt -keystore truststore.jks 
 
 **Producer**
 ```
-$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps-crc.testing:443 \
+$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps.cluster-wjkn5.wjkn5.sandbox732.opentlc.com:443 \
  --producer-property 'security.protocol=SSL' \
  --producer-property ssl.truststore.password=password \
- --producer-property ssl.truststore.location=/tmp/kafka/truststore.jks \
+ --producer-property ssl.truststore.location=/opt/kafka/truststore.jks \
  --topic my-topic
  ```
 
  **Consumer**
 
  ```
- $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps-crc.testing:443 \
+ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps.cluster-wjkn5.wjkn5.sandbox732.opentlc.com:443 \
  --consumer-property 'security.protocol=SSL' \
  --consumer-property ssl.truststore.password=password \
- --consumer-property ssl.truststore.location=/tmp/kafka/truststore.jks \
+ --consumer-property ssl.truststore.location=/opt/kafka/truststore.jks \
  --topic my-topic  \
  --from-beginning
  ```
