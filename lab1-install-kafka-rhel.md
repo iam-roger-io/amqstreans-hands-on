@@ -5,6 +5,7 @@
 
 - [Download AMQ Streams - Red Hat Developer - Community ](https://developers.redhat.com/products/amq/download)
 - [Download AMQ Streams - Enterprise ](https://access.redhat.com/downloads/)
+- [Documentação](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7)
 
 
 **Descompactar os pacote baixado**
