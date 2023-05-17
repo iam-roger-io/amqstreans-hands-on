@@ -82,7 +82,9 @@ log.dirs=/tmp/kafka-logs2
 ```
 
 **Inicie o kafka**
+```
 /opt/kafka/kafka2/bin/kafka-server-start.sh /opt/kafka/kafka2/config/server.properties
 
 ```
+
 [Index](./index.md)
