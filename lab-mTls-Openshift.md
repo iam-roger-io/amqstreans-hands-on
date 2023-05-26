@@ -61,7 +61,7 @@ oc extract secret/userm  --keys=user.password --to=- > user.password
 keytool -keystore user-truststore.jks -alias CARoot -import -file ca.crt
 ```
 
-*Neste comando sera pedido uma senha no prompt. Informe a senha do user.password *
+*Neste comando sera pedido uma senha no prompt. Informe a senha do user.password*
 
 ```
 keytool -importkeystore -srckeystore user.p12 -srcstoretype pkcs12 -destkeystore user-keystore.jks -deststoretype jks -storepass mypassword2 -noprompt
