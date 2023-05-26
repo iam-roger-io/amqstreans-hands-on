@@ -7,7 +7,7 @@
 
 **Pre requisitos**
 
-- um tópico chamado my-topic
+- Um tópico chamado my-topic
 - Cluster em execução com o listener com tls habilitado. Acesso externo ao OCP
 ```
 - authentication:
