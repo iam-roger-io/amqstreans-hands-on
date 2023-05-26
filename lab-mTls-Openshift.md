@@ -2,9 +2,13 @@
 
 # mTLS Authentication
 
-# Pre Requisito
 
-Cluster em execução com o listener com tls habilitado. Acesso externo ao OCP
+[Index](./index.md)
+
+**Pre requisitos**
+
+- um tópico chamado my-topic
+- Cluster em execução com o listener com tls habilitado. Acesso externo ao OCP
 ```
 - authentication:
     type: tls
@@ -14,7 +18,7 @@ tls: true
 type: route
 ```
 
-Usuario configurado para autenticação TLS
+- Usuario configurado para autenticação TLS
 
 ```
 apiVersion: kafka.strimzi.io/v1beta2
@@ -34,25 +38,25 @@ spec:
 
 ## Com Certificado do usuário criado pelo Strimzi
 
-*Baixar o certificado do cluster*
+**Baixar o certificado do cluster**
 
 
 ```
 oc extract secret/amqstreams-lab-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
 ```
 
-*Criar o truststore com o certificado do cluster*
+**Criar o truststore com o certificado do cluster**
 
 ```
 keytool -import -trustcacerts -alias root -file ca.crt -keystore cluster-truststore.jks -storepass mypassword -noprompt
 ```
 
-*Baixar certificado do usuario*
+**Baixar certificado do usuario**
 ```
 oc extract secret/userm  --keys=user.p12 --to=- > user.p12
 ```
 
-*Criar Keystore com o certificado do usuário*
+**Criar Keystore com o certificado do usuário**
 ```
 oc extract secret/userm  --keys=user.password --to=- > user.password
 ```
@@ -61,12 +65,13 @@ oc extract secret/userm  --keys=user.password --to=- > user.password
 keytool -keystore user-truststore.jks -alias CARoot -import -file ca.crt
 ```
 
-*Neste comando sera pedido uma senha no prompt. Informe a senha do user.password*
+*Neste comando será solicitado uma senha no prompt. Informe a senha do user.password*
 
 ```
 keytool -importkeystore -srckeystore user.p12 -srcstoretype pkcs12 -destkeystore user-keystore.jks -deststoretype jks -storepass mypassword2 -noprompt
 ```
 
+**Produtor Kafka**
 ```
  $KAFKA_HOME/bin/kafka-console-producer.sh \
  --bootstrap-server  amqstreams-lab-kafka-bootstrap-amq-streams-lab.apps-crc.testing:443 \
@@ -78,3 +83,6 @@ keytool -importkeystore -srckeystore user.p12 -srcstoretype pkcs12 -destkeystore
  --producer-property ssl.key.password=Tz2uzd34dHsiGOohYy54ZzQ2tCM5GAjS \
  --topic my-topic
  ```
+
+
+ [Index](./index.md)
