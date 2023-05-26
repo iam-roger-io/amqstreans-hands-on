@@ -114,12 +114,22 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server amqstreams-lab-kafk
 
 Adicione o bloco abaixo aos listeners
 
+Login de dentro do Openshift
 ```
       - name: external
         port: 9094
         type: route
         tls: true
 ```
+
+Login de dentro do Openshift
+      - authentication:
+          type: scram-sha-512
+        name: loginroute
+        port: 9096
+        tls: true
+        type: route
+
 
 oc project amq-streams-lab
 
