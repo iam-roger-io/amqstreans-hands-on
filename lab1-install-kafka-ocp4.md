@@ -6,6 +6,7 @@
 - [Download AMQ Streams - Red Hat Developer - Community ](https://developers.redhat.com/products/amq/download)
 - [Download AMQ Streams - Enterprise ](https://access.redhat.com/downloads/)
 - [Documentação](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7)
+- [Broker Configs](https://kafka.apache.org/documentation/#brokerconfigs)
 
 ```
 oc new-project amq-streams-lab
