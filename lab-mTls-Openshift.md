@@ -23,9 +23,7 @@ type: route
 ```
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaUser
-metadata:
-  creationTimestamp: '2023-05-26T19:45:31Z'
-  generation: 1
+metadata:    
   labels:
     strimzi.io/cluster: amqstreams-lab
   name: userm
