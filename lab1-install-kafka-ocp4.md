@@ -63,7 +63,6 @@ metadata:
   name: my-topic
   labels:
     strimzi.io/cluster: amqstreams-lab
-  namespace: amq-streams-lab
 spec:
   partitions: 10
   replicas: 3
@@ -78,7 +77,7 @@ spec:
 
 **Sem TLS**
 ```
-$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server amqstreams-lab-kafka-bootstrap.amq-streams-lab.svc.cluster.local:9092 \
+$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server *<CLUSTER_NAME>*-kafka-bootstrap.*<NAMESPACE NAME>*.svc.cluster.local:9092 \
  --producer-property 'security.protocol=PLAINTEXT' \
  --topic my-topic
 ```
