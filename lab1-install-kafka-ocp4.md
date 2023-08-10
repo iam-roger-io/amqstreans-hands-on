@@ -3,14 +3,20 @@
 
 [Index](./index.md)
 
+## Pré Requisito
+
+- Namespace criada: Nome sugerido: **amq-streams-lab**
+- [Openshift 4 - Instalar Operator ](./lab-install-operator.md)
+
+## Links de apoio
+
 - [Download AMQ Streams - Red Hat Developer - Community ](https://developers.redhat.com/products/amq/download)
 - [Download AMQ Streams - Enterprise ](https://access.redhat.com/downloads/)
 - [Documentação](https://access.redhat.com/documentation/en-us/red_hat_amq/7.7)
 - [Broker Configs](https://kafka.apache.org/documentation/#brokerconfigs)
+  
 
-```
-oc new-project amq-streams-lab
-```
+
 
 ```
 apiVersion: kafka.strimzi.io/v1beta2
@@ -78,7 +84,7 @@ spec:
 
 **Sem TLS**
 ```
-$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server *<CLUSTER_NAME>*-kafka-bootstrap.*<NAMESPACE NAME>*.svc.cluster.local:9092 \
+$KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server <CLUSTER_NAME>-kafka-bootstrap.<NAMESPACE NAME>.svc.cluster.local:9092 \
  --producer-property 'security.protocol=PLAINTEXT' \
  --topic my-topic
 ```

@@ -20,7 +20,8 @@ rm -rfv /opt/kafka/kafka_2.13-3.3.1.redhat-00008
 LAB 1 - Instalação
 
 - [RHEL ](./lab1-install-kafka-rhel.md)
-- [Openshift 4](./lab1-install-kafka-ocp4.md)
+- [Openshift 4 - Instalar Operator ](./lab-install-operator.md)
+- [Openshift 4 - Provisionar cluster Kafka ](./lab1-install-kafka-ocp4.md)
 
 LAB 2 
 - [Zookeeper ](./lab2-zookeeper.md)
