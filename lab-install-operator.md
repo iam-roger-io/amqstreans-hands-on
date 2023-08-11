@@ -10,13 +10,13 @@ No menu esquerdo do Openshift procure a opção *Operator Hub*
 
 ![Alt text](./images/operator1.png "a title")
 
-Pesquise a palavra Kafk e observe que serão exibidos 2 operator: AMQ Streams e Strimzi. O Strinzi é a versão community do AMQ Streams.
+Pesquise a palavra **Kafk** e observe que serão exibidos 2 operators: AMQ Streams e Strimzi. O Strinzi é a versão community do AMQ Streams.
 
 Clique no operator **AMQ Streams** e em Seguida no botão install.
 
 ![Alt text](./images/operator2.png "a title")
 
-Para o lab selecione a opção **Installed Namespaces** e selecione a namespace desejada. Para fins de lab podemos  aceitar os valores defaul para as demais propriedades.
+Para o lab selecione a opção **Installed Namespaces** e selecione a namespace desejada. Para fins de lab podemos  aceitar os valores default para as demais propriedades.
 
 ![Alt text](./images/operator3.png "a title")
 
@@ -36,7 +36,7 @@ Clique no menu esquerdo na Opçao **Workloads** e na sequência em **pods**. Obs
 
 **Estamos prontos para provisionar um cluster Kafka no Openshift .**
 
-## Considerações
+##Considerações
 
-    - Não é recomendável instalar o AMQ Streams com o escopo de **All namespaces**, a fim de gerenciar multiplos cluster.
-    - Não é recomendado a instalar o Operator com a estratégia de atualização automática. Isso pode gerar problemas no cluster causados por alterações feitas no operator.
+- Não é recomendável instalar o AMQ Streams com o escopo de **All namespaces**, a fim de gerenciar multiplos cluster.
+- Não é recomendado a instalar o Operator com a estratégia de atualização automática. Isso pode gerar problemas no cluster causados por alterações feitas no operator.
